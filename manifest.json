@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "SlidesPilot to Images Converter",
+    "version": "1.0",
+    "description": "Convert SlidesPilot presentations into downloadable images.",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "downloads"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.slidespilot.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "host_permissions": [
+      "https://www.slidespilot.com/*",
+      "https://cdnfpb.slidespilot.com/slides/*"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["html2canvas.min.js"],
+        "matches": ["https://www.slidespilot.com/*"]
+      }
+    ]
+  }
+  
